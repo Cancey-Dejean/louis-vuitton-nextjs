@@ -21,7 +21,7 @@
 }
 
 body {
-  @apply h-screen flex flex-col font-body;
+  @apply h-screen flex flex-col font-body bg-black text-[16px] leading-[20px];
 }
 
 main {

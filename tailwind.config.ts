@@ -17,6 +17,12 @@ const config: Config = {
           "sans-serif",
         ],
       },
+      boxShadow: {
+        border: "inset 0 0 0 1px #fff",
+      },
+      backgroundImage: {
+        "video-gradient": "linear-gradient(0deg,#000 0,transparent)",
+      },
     },
   },
   plugins: [],
