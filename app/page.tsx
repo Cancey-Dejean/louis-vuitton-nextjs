@@ -4,12 +4,13 @@ export default function Home() {
   return (
     <main className="">
       <VideoBanner
-        imgOption="video"
-        title="Women's Fall-Winter 2023 Collection"
-        videoSrc="/videos/video1.mp4"
+        primary
+        imgOption="image"
+        title="Louis Vuitton Blossom"
+        imageSrc="/images/jewelry_blossom.webp"
         buttons={[
-          { url: "#", label: "Explore the Collection" },
-          { url: "#", label: "Discover the Campaign" },
+          { url: "#", label: "Discover the Collection" },
+          { url: "#", label: "Explore the Campaign" },
         ]}
       />
 
@@ -69,9 +70,9 @@ export default function Home() {
 
       <VideoBanner
         imgOption="image"
-        title="New This Season"
-        imageSrc="/images/alma.webp"
-        buttons={[{ url: "#", label: "Discover New Bags" }]}
+        title="LV Academy"
+        imageSrc="/images/academy.jpeg"
+        buttons={[{ url: "#", label: "Discover the Collection" }]}
       />
     </main>
   )
