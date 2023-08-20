@@ -57,11 +57,11 @@ export default function Home() {
       <VideoBanner
         headingElement="h2"
         imgOption="video"
-        title="Idylle Blossom"
-        videoSrc="/videos/video6.mp4"
+        title="Silver Lockit"
+        videoSrc="/videos/video7.mp4"
         buttons={[
-          { url: "#", label: "Discover the Collection" },
-          { url: "#", label: "Explore the Campaign" },
+          { url: "#", label: "Explore the Collection" },
+          { url: "#", label: "Discover the Campaign" },
         ]}
       />
 

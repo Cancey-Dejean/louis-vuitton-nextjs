@@ -55,7 +55,7 @@ interface ServicesProps {
 
 const Services = ({ title }: ServicesProps) => {
   return (
-    <section className="py-[80px] px-[66px] bg-white">
+    <section className="py-[60px] px-[24px] md:py-[80px] md:px-[66px] bg-white">
       <Text as="h2" className="text-center text-[24px] leading-[28px]">
         {title}
       </Text>

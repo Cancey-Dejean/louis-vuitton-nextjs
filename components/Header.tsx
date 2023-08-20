@@ -2,20 +2,12 @@
 import Link from "next/link"
 import {
   Bars3Icon,
-  ChevronDownIcon,
   MagnifyingGlassIcon,
   ShoppingBagIcon,
-  XMarkIcon,
 } from "@heroicons/react/24/solid"
-// import { Fragment, useState } from "react"
-// import { Dialog, Transition } from "@headlessui/react"
-// import MenuModal from "./MenuModal"
 
-import { Dialog, Transition, Popover } from "@headlessui/react"
-import { Fragment, useEffect, useState } from "react"
-import { twMerge } from "tailwind-merge"
+import { useEffect, useState } from "react"
 import classNames from "classnames"
-import SearchModal from "./SearchModal"
 
 interface HeaderProps {}
 
@@ -50,27 +42,8 @@ const Header = ({}: HeaderProps) => {
       }
     }
 
-    checkInitialScroll() // Check initial scroll position on mount
+    checkInitialScroll()
   }, [])
-
-  // let [isOpen, setIsOpen] = useState(false)
-  // let [searchIsOpen, setSearchIsOpen] = useState(false)
-
-  // function closeModal() {
-  //   setIsOpen(false)
-  // }
-
-  // function openModal() {
-  //   setIsOpen(true)
-  // }
-
-  // function closeSearchModal() {
-  //   setSearchIsOpen(false)
-  // }
-
-  // function openSearchModal() {
-  //   setSearchIsOpen(true)
-  // }
 
   return (
     <header
@@ -95,7 +68,6 @@ const Header = ({}: HeaderProps) => {
           <button
             type="button"
             aria-label="Menu Button"
-            // onClick={openModal}
             className="flex items-center gap-4"
           >
             <Bars3Icon className="h-6 w-6" />
@@ -104,70 +76,9 @@ const Header = ({}: HeaderProps) => {
             </span>
           </button>
 
-          {/* Menu Modal */}
-          {/* <Transition appear show={isOpen} as={Fragment}>
-            <Dialog as="div" className="relative z-10" onClose={setIsOpen}>
-              <div className="fixed inset-0" />
-
-              <div className="fixed inset-0 overflow-hidden z-[101]">
-                <div className="absolute inset-0 overflow-hidden cursor-pointer bg-black/80">
-                  <div className="pointer-events-none fixed inset-y-0 left-0 flex max-w-full">
-                    <Transition.Child
-                      as={Fragment}
-                      enter="transform transition ease-in-out duration-500 sm:duration-700"
-                      enterFrom="-translate-x-full"
-                      enterTo="translate-x-0"
-                      leave="transform transition ease-in-out duration-500 sm:duration-700"
-                      leaveFrom="translate-x-0"
-                      leaveTo="-translate-x-full"
-                    >
-                      <Dialog.Panel className="pointer-events-auto w-screen max-w-md">
-                        <div className="flex h-full flex-col overflow-y-scroll bg-white pb-6 shadow-xl">
-                          <div className="px-4 sm:px-6 h-[88px] flex items-center">
-                            <div className="flex items-start justify-between">
-                              <div className="ml-3 flex h-7 items-center">
-                                <button
-                                  type="button"
-                                  className={classNames(
-                                    "flex items-center gap-4"
-                                  )}
-                                  onClick={() => setIsOpen(false)}
-                                >
-                                  <span className="absolute" />
-                                  <span className="sr-only">Close panel</span>
-                                  <XMarkIcon
-                                    className="h-6 w-6"
-                                    aria-hidden="true"
-                                  />
-                                  Close
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="relative mt-6 flex-1 px-4 sm:px-6">
-                            <nav>
-                              <ul>
-                                <li>
-                                  <Link href="/">
-                                    Louis Vuitton x Yayoi Kusama
-                                  </Link>
-                                </li>
-                              </ul>
-                            </nav>
-                          </div>
-                        </div>
-                      </Dialog.Panel>
-                    </Transition.Child>
-                  </div>
-                </div>
-              </div>
-            </Dialog>
-          </Transition> */}
-
           <button
             type="button"
             aria-label="Search Button"
-            // onClick={openSearchModal}
             className="flex items-center gap-4"
           >
             <MagnifyingGlassIcon className="h-5 w-5" />
@@ -175,70 +86,6 @@ const Header = ({}: HeaderProps) => {
               Search
             </span>
           </button>
-
-          {/* Search Modal */}
-          {/* <Transition appear show={searchIsOpen} as={Fragment}>
-            <Dialog
-              as="div"
-              className="relative z-10"
-              onClose={setSearchIsOpen}
-            >
-              <div className="fixed inset-0" />
-
-              <div className="fixed inset-0 overflow-hidden">
-                <div className="absolute inset-0 overflow-hidden cursor-pointer bg-black/80">
-                  <div className="pointer-events-none fixed inset-y-0 left-0 flex max-w-full">
-                    <Transition.Child
-                      as={Fragment}
-                      enter="transform transition ease-in-out duration-500"
-                      enterFrom="-translate-y-full"
-                      enterTo="translate-y-0"
-                      leave="transform transition ease-in-out duration-500"
-                      leaveFrom="translate-y-0"
-                      leaveTo="-translate-y-full"
-                    >
-                      <Dialog.Panel
-                        className="pointer-events-auto w-screen max-w-full"
-                        onClick={() => setSearchIsOpen(false)}
-                      >
-                        <div className="flex flex-col overflow-y-scroll bg-white pb-6 shadow-xl ">
-                          <div className="px-4 sm:px-6 h-[88px] flex items-center relative">
-                            <div className="flex flex-1 justify-center items-center max-w-[600px] mx-auto">
-                              <input
-                                type="email"
-                                name="email"
-                                id="email"
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                placeholder="you@example.com"
-                              />
-                            </div>
-                            <button
-                              type="button"
-                              className={classNames(
-                                "flex items-center  p-4",
-                                "absolute right-0 top-[50%] -translate-y-1/2"
-                              )}
-                              onClick={() => setSearchIsOpen(false)}
-                            >
-                              <span className="absolute" />
-                              <span className="sr-only">Close panel</span>
-                              <XMarkIcon
-                                className="h-6 w-6"
-                                aria-hidden="true"
-                              />
-                            </button>
-                          </div>
-                          <div className="relative mt-6 flex-1 px-4 sm:px-6">
-                            Mega Menu
-                          </div>
-                        </div>
-                      </Dialog.Panel>
-                    </Transition.Child>
-                  </div>
-                </div>
-              </div>
-            </Dialog>
-          </Transition> */}
         </div>
 
         <div
