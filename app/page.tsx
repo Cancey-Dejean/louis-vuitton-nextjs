@@ -1,3 +1,4 @@
+import Services from "@/components/Services"
 import VideoBanner from "@/components/VideoBanner"
 
 export default function Home() {
@@ -5,6 +6,7 @@ export default function Home() {
     <main className="">
       <VideoBanner
         primary
+        headingElement="h1"
         imgOption="image"
         title="Louis Vuitton Blossom"
         imageSrc="/images/jewelry_blossom.webp"
@@ -15,6 +17,7 @@ export default function Home() {
       />
 
       <VideoBanner
+        headingElement="h2"
         imgOption="video"
         title="LV by the Pool"
         videoSrc="/videos/video2.mp4"
@@ -25,6 +28,7 @@ export default function Home() {
       />
 
       <VideoBanner
+        headingElement="h2"
         imgOption="video"
         title="Taurillon Monogram and Monogram Macassar"
         videoSrc="/videos/video3.mp4"
@@ -32,6 +36,7 @@ export default function Home() {
       />
 
       <VideoBanner
+        headingElement="h2"
         imgOption="video"
         title="The Capucines"
         videoSrc="/videos/video4.mp4"
@@ -39,6 +44,7 @@ export default function Home() {
       />
 
       <VideoBanner
+        headingElement="h2"
         imgOption="video"
         title="Tambour"
         videoSrc="/videos/video5.mp4"
@@ -49,6 +55,7 @@ export default function Home() {
       />
 
       <VideoBanner
+        headingElement="h2"
         imgOption="video"
         title="Idylle Blossom"
         videoSrc="/videos/video6.mp4"
@@ -59,6 +66,7 @@ export default function Home() {
       />
 
       <VideoBanner
+        headingElement="h2"
         imgOption="image"
         title="Pacific Chill"
         imageSrc="/images/fragrances.webp"
@@ -69,11 +77,14 @@ export default function Home() {
       />
 
       <VideoBanner
+        headingElement="h2"
         imgOption="image"
         title="LV Academy"
         imageSrc="/images/academy.jpeg"
         buttons={[{ url: "#", label: "Discover the Collection" }]}
       />
+
+      <Services title="Services" />
     </main>
   )
 }

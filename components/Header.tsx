@@ -20,29 +20,37 @@ import SearchModal from "./SearchModal"
 interface HeaderProps {}
 
 const Header = ({}: HeaderProps) => {
-  const [scrolled, setScrolled] = useState(false)
+  const [show, setShow] = useState("")
+  const [lastScrollY, setLastScrollY] = useState(0)
+
+  const controlHeader = () => {
+    if (window.scrollY > 0) {
+      if (window.scrollY > 0 && window.scrollY > lastScrollY) {
+        setShow("hideHeader")
+      } else {
+        setShow("showHeader")
+      }
+    } else {
+      setShow("")
+    }
+    setLastScrollY(window.scrollY)
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", controlHeader)
+    return () => {
+      window.removeEventListener("scroll", controlHeader)
+    }
+  }, [lastScrollY])
 
   useEffect(() => {
     const checkInitialScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true)
+      if (window.scrollY > 0) {
+        setShow("showHeader")
       }
     }
 
     checkInitialScroll() // Check initial scroll position on mount
-
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true)
-      } else {
-        setScrolled(false)
-      }
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => {
-      window.removeEventListener("scroll", handleScroll)
-    }
   }, [])
 
   // let [isOpen, setIsOpen] = useState(false)
@@ -67,16 +75,15 @@ const Header = ({}: HeaderProps) => {
   return (
     <header
       className={classNames(
-        "fixed top-0 left-0 w-full h-[56px]  z-10 flex items-center hover:bg-white transition-all duration-[.3s] ease-in-out group",
-        "md:h-[88px]",
-        scrolled ? "bg-white" : " bg-transparent"
+        `fixed top-0 left-0 w-full h-[56px]  z-10 flex items-center hover:bg-white transition-all duration-[.3s] ease-in-out group ${show}`,
+        "md:h-[88px]"
       )}
     >
       <div
         className={classNames(
           "flex px-[16px] flex-1 items-center justify-between group-hover:text-black",
           "md:px-[36px]",
-          scrolled ? "text-black" : "text-white"
+          !show ? "text-white" : "text-black"
         )}
       >
         <div
@@ -87,6 +94,7 @@ const Header = ({}: HeaderProps) => {
         >
           <button
             type="button"
+            aria-label="Menu Button"
             // onClick={openModal}
             className="flex items-center gap-4"
           >
@@ -158,6 +166,7 @@ const Header = ({}: HeaderProps) => {
 
           <button
             type="button"
+            aria-label="Search Button"
             // onClick={openSearchModal}
             className="flex items-center gap-4"
           >
@@ -238,7 +247,7 @@ const Header = ({}: HeaderProps) => {
             "md:max-w-[227px]"
           )}
         >
-          <Link href="" className="block">
+          <Link href="" className="block" aria-label="Louis Vuitton Logo">
             <svg
               width="151"
               height="16"
@@ -247,7 +256,7 @@ const Header = ({}: HeaderProps) => {
               aria-hidden="true"
               className={classNames(
                 "h-[23px] w-full group-hover:fill-black transition-all duration-[.3s] ease-in-out",
-                scrolled ? "fill-black" : "fill-white"
+                !show ? "fill-white" : "fill-black"
               )}
             >
               <path
@@ -272,7 +281,8 @@ const Header = ({}: HeaderProps) => {
             <span
               className={classNames(
                 "h-3 w-3 rounded-full border  bg-transparent flex items-center justify-center text-[8px] leading-3  relative top-[-2px] group-hover:text-black group-hover:border-black",
-                scrolled ? "border-black text-black" : "border-white text-white"
+
+                !show ? "border-white text-white" : "border-black text-black"
               )}
             >
               0
