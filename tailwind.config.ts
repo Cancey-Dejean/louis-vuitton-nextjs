@@ -19,6 +19,7 @@ const config: Config = {
       },
       boxShadow: {
         border: "inset 0 0 0 1px #fff",
+        "link-underline": "0 1px 0 rgba(0,0,0,.6)",
       },
       backgroundImage: {
         "video-gradient": "linear-gradient(0deg,#000 0,transparent)",

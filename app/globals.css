@@ -21,9 +21,17 @@
 }
 
 body {
-  @apply h-screen flex flex-col font-body bg-black text-[16px] leading-[20px];
+  @apply h-screen flex flex-col font-body text-[16px] leading-[20px];
 }
 
 main {
   @apply flex-1;
+}
+
+.showHeader {
+  @apply shadow-sm bg-white translate-y-0;
+}
+
+.hideHeader {
+  @apply shadow-none translate-y-[-100%];
 }
