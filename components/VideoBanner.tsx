@@ -145,7 +145,7 @@ const VideoBanner = ({
                 className="w-5 h-5 text-inherit"
               >
                 <path
-                  strokeinecap="round"
+                  strokeLinecap="round"
                   strokeLinejoin="round"
                   d="M15.75 5.25v13.5m-7.5-13.5v13.5"
                 />
