@@ -1,17 +1,14 @@
 "use client"
-import Link from "next/link"
 import {
   Bars3Icon,
   MagnifyingGlassIcon,
   ShoppingBagIcon,
-} from "@heroicons/react/24/solid"
-
-import { useEffect, useState } from "react"
+} from "@heroicons/react/24/outline"
 import classNames from "classnames"
+import Link from "next/link"
+import { useEffect, useState } from "react"
 
-interface HeaderProps {}
-
-const Header = ({}: HeaderProps) => {
+const Header = () => {
   const [show, setShow] = useState("")
   const [lastScrollY, setLastScrollY] = useState(0)
 
@@ -48,53 +45,53 @@ const Header = ({}: HeaderProps) => {
   return (
     <header
       className={classNames(
-        `fixed top-0 left-0 w-full h-[56px]  z-10 flex items-center hover:bg-white transition-all duration-[.3s] ease-in-out group ${show}`,
-        "md:h-[88px]"
+        `fixed top-0 left-0 w-full h-[56px] flex items-center z-10 hover:bg-white transition-all duration-[.3s] ease-in-out group hover:text-black",
+        "md:h-[88px] ${show}`
       )}
     >
+      {/* Header Inner */}
       <div
         className={classNames(
-          "flex px-[16px] flex-1 items-center justify-between group-hover:text-black",
+          "flex flex-1 items-center justify-between px-[16px]",
           "md:px-[36px]",
           !show ? "text-white" : "text-black"
         )}
       >
+        {/* Header Left */}
         <div
-          className={classNames(
-            "flex items-center gap-[16px]",
-            "md:gap-[30px]"
-          )}
+          className={classNames("flex  items-center gap-[16px]", "gap-[30px]")}
         >
+          {/* Menu */}
           <button
             type="button"
-            aria-label="Menu Button"
-            className="flex items-center gap-4"
+            className="flex items-center gap-4 group-hover:text-black"
           >
             <Bars3Icon className="h-6 w-6" />
-            <span className={classNames("hidden", "md:inline-block")}>
+            <span className={classNames("hidden", " md:inline-block")}>
               Menu
             </span>
           </button>
 
+          {/* Search */}
           <button
             type="button"
-            aria-label="Search Button"
-            className="flex items-center gap-4"
+            className="flex items-center gap-4 group-hover:text-black"
           >
             <MagnifyingGlassIcon className="h-5 w-5" />
-            <span className={classNames("hidden", "md:inline-block")}>
+            <span className={classNames("hidden", " md:inline-block")}>
               Search
             </span>
           </button>
         </div>
 
+        {/* Header Center */}
         <div
           className={classNames(
-            "absolute max-w-[154px] w-full mx-auto left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2",
+            "absolute max-w-[154px] w-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 ",
             "md:max-w-[227px]"
           )}
         >
-          <Link href="" className="block" aria-label="Louis Vuitton Logo">
+          <Link href="/">
             <svg
               width="151"
               height="16"
@@ -114,21 +111,24 @@ const Header = ({}: HeaderProps) => {
           </Link>
         </div>
 
+        {/* Header Right */}
         <div className="flex items-center gap-[30px]">
           <div
-            className={classNames("hidden items-center gap-[30px]", "md:flex")}
+            className={classNames(
+              "hidden items-center gap-[30px] group-hover:text-black",
+              "md:flex"
+            )}
           >
-            <button className="flex items-center">Wishlist</button>
-            <button className="flex items-center">MyLV</button>
+            <button>Wishlist</button>
+            <button>MyLV</button>
           </div>
 
           {/* Cart */}
-          <button className="flex items-start">
+          <button className="flex items-start group-hover:text-black">
             <ShoppingBagIcon className="h-5 w-5" />
             <span
               className={classNames(
-                "h-3 w-3 rounded-full border  bg-transparent flex items-center justify-center text-[8px] leading-3  relative top-[-2px] group-hover:text-black group-hover:border-black",
-
+                "h-3 w-3 border bg-transparent flex items-center justify-center text-[8px] leading-3 relative top-[-2px] group-hover:text-black group-hover:border-black rounded-full",
                 !show ? "border-white text-white" : "border-black text-black"
               )}
             >
